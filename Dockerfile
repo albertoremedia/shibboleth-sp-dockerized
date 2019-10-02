@@ -14,9 +14,9 @@ RUN yum -y update \
 COPY httpd-shibd-foreground /usr/local/bin/
 COPY shibboleth/ /etc/shibboleth/
 
-RUN chkconfig sshd --add \
-    && chkconfig sshd on --level 2,3,4,5 \
-    && test -d /var/run/lock || mkdir -p /var/run/lock \
+RUN test -d /var/run/lock || mkdir -p /var/run/lock \
+    # && chkconfig sshd --add \
+    # && chkconfig sshd on --level 2,3,4,5 \
     && test -d /var/lock/subsys/ || mkdir -p /var/lock/subsys/ \
     && chmod +x /etc/shibboleth/shibd-redhat \
     && chmod +x /usr/local/bin/httpd-shibd-foreground \
