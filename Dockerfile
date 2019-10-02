@@ -30,6 +30,6 @@ RUN chkconfig sshd --add \
     && sed -i 's/CustomLog logs\/ssl_request_log/CustomLog \/dev\/stdout/g' /etc/httpd/conf.d/ssl.conf \
     && sed -i 's/TransferLog logs\/ssl_access_log/TransferLog \/dev\/stdout/g' /etc/httpd/conf.d/ssl.conf
     
-EXPOSE 80 443
+EXPOSE 22 80 443
 
 CMD ["httpd-shibd-foreground"]
