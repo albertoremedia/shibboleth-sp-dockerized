@@ -4,6 +4,9 @@
 echo "removing pid files"
 rm -f /etc/httpd/run/httpd.pid /var/lock/subsys/shibd
 
+echo "starting sshd daemon"
+/etc/init.d/sshd start
+
 # Make sure /etc/shibboleth/shibd-redhat is executable
 echo "modifying exec for shibd-redhat"
 chmod +x /etc/shibboleth/shibd-redhat
